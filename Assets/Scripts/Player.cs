@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Photon.Pun;
+
+
 public class Player : MonoBehaviour
 {
     public float speed = 10;
@@ -10,36 +13,52 @@ public class Player : MonoBehaviour
     public LayerMask layerMask;
     private Animator animator;
 
+
     private bool esSuelo = false;
     void Start()
     {
-        rig = GetComponent<Rigidbody2D>();
-        jumpForce = speed *50;
-        animator = GetComponent<Animator>();
+        if (GetComponent<PhotonView>().IsMine) { 
+            rig = GetComponent<Rigidbody2D>();
+        
+            animator = GetComponent<Animator>();
+
+            Camera.main.transform.SetParent(transform);
+            Camera.main.transform.position = transform.position + (Vector3.up) + transform.forward * -10;
+        }
+
+        jumpForce = speed * 50;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rig.velocity = (transform.right * speed * Input.GetAxis("Horizontal")) + (transform.up * rig.velocity.y);
-        if (Input.GetButtonDown("Jump"))
+        if (GetComponent<PhotonView>().IsMine)
         {
-            Salta();
-        }
-        
-        animator.SetFloat("VelocityY", rig.velocity.y);
-        animator.SetFloat("VelocityX", Mathf.Abs(rig.velocity.x));
-        animator.SetBool("SueloToca", TocaSuelo());
+            rig.velocity = (transform.right * speed * Input.GetAxis("Horizontal")) + (transform.up * rig.velocity.y);
+            if (Input.GetButtonDown("Jump"))
+            {
+                Salta();
+            }
 
-        if (rig.velocity.x > 0.1f)
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
+            animator.SetFloat("VelocityY", rig.velocity.y);
+            animator.SetFloat("VelocityX", Mathf.Abs(rig.velocity.x));
+            animator.SetBool("SueloToca", TocaSuelo());
 
+            if (rig.velocity.x > 0.1f && GetComponent<SpriteRenderer>().flipX)
+            {
+                GetComponent<PhotonView>().RPC("RotateSprite", RpcTarget.All, false);
+
+            }
+            else if (rig.velocity.x < -0.1f && GetComponent<SpriteRenderer>().flipX)
+            {
+                GetComponent<PhotonView>().RPC("RotateSprite", RpcTarget.All, true);
+            }
         }
-        else if (rig.velocity.x < -0.1f)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
+    }
+    [PunRPC]
+    private void RotateSprite(bool rotate)
+    {
+        GetComponent<SpriteRenderer>().flipX = rotate;
     }
 
     private bool TocaSuelo()

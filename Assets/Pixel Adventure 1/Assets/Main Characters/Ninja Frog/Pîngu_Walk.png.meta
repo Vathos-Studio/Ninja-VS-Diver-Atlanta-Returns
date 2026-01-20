@@ -1,0 +1,464 @@
+fileFormatVersion: 2
+guid: e268d7ff701059e4b99a20faec99dc38
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7141987737324307554
+    second: "P\xEEngu_Walk_0"
+  - first:
+      213: -8522259269087069176
+    second: "P\xEEngu_Walk_1"
+  - first:
+      213: -5144265307463486776
+    second: "P\xEEngu_Walk_2"
+  - first:
+      213: -778199437110974674
+    second: "P\xEEngu_Walk_3"
+  - first:
+      213: 1553798726847309849
+    second: "P\xEEngu_Walk_4"
+  - first:
+      213: -4234510060846856924
+    second: "P\xEEngu_Walk_5"
+  - first:
+      213: 1185187756793448978
+    second: "P\xEEngu_Walk_6"
+  - first:
+      213: -5077537768021897073
+    second: "P\xEEngu_Walk_7"
+  - first:
+      213: -3274221717130495946
+    second: "P\xEEngu_Walk_8"
+  - first:
+      213: 1144376249348915722
+    second: "P\xEEngu_Walk_9"
+  - first:
+      213: 2795860793760169386
+    second: "P\xEEngu_Walk_10"
+  - first:
+      213: 3741213426615557855
+    second: "P\xEEngu_Walk_11"
+  - first:
+      213: 9078702607170073589
+    second: "P\xEEngu_Walk_12"
+  - first:
+      213: 4478937186148999576
+    second: "P\xEEngu_Walk_13"
+  - first:
+      213: -8633449047342398767
+    second: "P\xEEngu_Walk_14"
+  - first:
+      213: -1489677517855774798
+    second: "P\xEEngu_Walk_15"
+  - first:
+      213: -2207766530720442931
+    second: "P\xEEngu_Walk_16"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 500
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "P\xEEngu_Walk_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2400
+        width: 1600
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ade7124530a4849935bbad532bbd3f
+      internalID: 461239800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "P\xEEngu_Walk_1"
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2400
+        width: 1600
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e32fe494c8c82a34e8544d5b48930c77
+      internalID: 607325624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "P\xEEngu_Walk_2"
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2400
+        width: 1600
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1322bd24298439847ad53bc1b828772e
+      internalID: -882379201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "P\xEEngu_Walk_3"
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 2400
+        width: 1600
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ac52b94ac4ee434889546e1768d78be
+      internalID: 242806812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "P\xEEngu_Walk_4"
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 2400
+        width: 1600
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e148c5834827d334e85ba8325d2ed2d9
+      internalID: -1930792623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "P\xEEngu_Walk_5"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 1600
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7295f0aaccc46174298bea60cba0c9b9
+      internalID: 1195728057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "P\xEEngu_Walk_6"
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1200
+        width: 1600
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a642a0d851555794fa40ff286c45a0af
+      internalID: -1660539886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "P\xEEngu_Walk_7"
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1200
+        width: 1600
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e261a75022ed70242bc26c17b90f5fa5
+      internalID: -1476559931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "P\xEEngu_Walk_8"
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1200
+        width: 1600
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f10a940805a2a70478f15f420524b85b
+      internalID: -142466896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "P\xEEngu_Walk_9"
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 1200
+        width: 1600
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5fc77f45298c0f408fb9c6bc09d7da4
+      internalID: 1283949766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "P\xEEngu_Walk_10"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1600
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5849f85df0d28a468c2f93ee939d295
+      internalID: 48469825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "P\xEEngu_Walk_11"
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 1600
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad5546faa1082b7479171aaf41bef745
+      internalID: -301912473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "P\xEEngu_Walk_12"
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 1600
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 960d40c46967a0a428646619d0b04d96
+      internalID: -1357111636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c9088e604497ecb47a4ccefc7ae7f9a9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      "P\xEEngu_Walk_0": 461239800
+      "P\xEEngu_Walk_1": 607325624
+      "P\xEEngu_Walk_10": 48469825
+      "P\xEEngu_Walk_11": -301912473
+      "P\xEEngu_Walk_12": -1357111636
+      "P\xEEngu_Walk_2": -882379201
+      "P\xEEngu_Walk_3": 242806812
+      "P\xEEngu_Walk_4": -1930792623
+      "P\xEEngu_Walk_5": 1195728057
+      "P\xEEngu_Walk_6": -1660539886
+      "P\xEEngu_Walk_7": -1476559931
+      "P\xEEngu_Walk_8": -142466896
+      "P\xEEngu_Walk_9": 1283949766
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

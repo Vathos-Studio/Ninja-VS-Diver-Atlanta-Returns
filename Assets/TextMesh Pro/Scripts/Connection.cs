@@ -13,7 +13,8 @@ public class Connection : MonoBehaviourPunCallbacks
     }
 
     // Update is called once per frame
-    public override void OnConnectedToMaster()
+    override
+    public  void OnConnectedToMaster()
     {
         print("ConectadoALMAster!!");
     }
@@ -23,8 +24,8 @@ public class Connection : MonoBehaviourPunCallbacks
         RoomOptions options = new RoomOptions() { MaxPlayers = 4 };
         PhotonNetwork.JoinOrCreateRoom("room1", options, TypedLobby.Default);
     }
-
-    public override void OnJoinedRoom()
+    override
+    public  void OnJoinedRoom()
     {
         Debug.Log("Conectado a la sala " + PhotonNetwork.CurrentRoom.Name);
         Debug.Log("Hay..." + PhotonNetwork.CurrentRoom.PlayerCount + " jugadores.");
@@ -32,7 +33,9 @@ public class Connection : MonoBehaviourPunCallbacks
 
     private void Update()
     {
+        if (PhotonNetwork .IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount > 1) { 
         PhotonNetwork.LoadLevel(1);
-        Destroy(this.gameObject);
+        Destroy(this);
+        }
     }
 }
