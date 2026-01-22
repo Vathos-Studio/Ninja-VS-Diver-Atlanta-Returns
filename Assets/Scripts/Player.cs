@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private Animator animator;
 
 
-    private bool esSuelo = false;
+    
     void Start()
     {
         if (GetComponent<PhotonView>().IsMine) { 
@@ -44,14 +44,14 @@ public class Player : MonoBehaviour
             animator.SetFloat("VelocityX", Mathf.Abs(rig.velocity.x));
             animator.SetBool("SueloToca", TocaSuelo());
 
-            if (rig.velocity.x > 0.1f && GetComponent<SpriteRenderer>().flipX)
-            {
-                GetComponent<PhotonView>().RPC("RotateSprite", RpcTarget.All, false);
-
-            }
-            else if (rig.velocity.x < -0.1f && GetComponent<SpriteRenderer>().flipX)
+            if (rig.velocity.x > 0.1f )
             {
                 GetComponent<PhotonView>().RPC("RotateSprite", RpcTarget.All, true);
+
+            }
+            else if (rig.velocity.x < -0.1f )
+            {
+                GetComponent<PhotonView>().RPC("RotateSprite", RpcTarget.All, false);
             }
         }
     }
