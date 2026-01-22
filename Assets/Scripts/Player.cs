@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using Photon.Pun;
 
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviourPunCallbacks
 {
     public float speed = 10;
     public Rigidbody2D rig;
     private float jumpForce;
     public LayerMask layerMask;
     private Animator animator;
+
+    public string NickName;
 
 
     
