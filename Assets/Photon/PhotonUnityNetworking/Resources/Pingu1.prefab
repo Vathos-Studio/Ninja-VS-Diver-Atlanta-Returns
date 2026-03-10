@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: -186999466178308839}
   m_Layer: 2
   m_Name: Pingu1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
