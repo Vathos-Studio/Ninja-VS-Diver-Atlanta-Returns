@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 using Photon.Pun;
+using System.Drawing;
+using TMPro;
 
 
 public class Player : MonoBehaviourPunCallbacks
@@ -13,6 +13,7 @@ public class Player : MonoBehaviourPunCallbacks
     private float jumpForce;
     public LayerMask layerMask;
     private Animator animator;
+    public int points;
 
     public string NickName;
 
@@ -30,6 +31,9 @@ public class Player : MonoBehaviourPunCallbacks
         }
 
         jumpForce = speed * 50;
+
+        NickName = photonView.Owner.NickName;
+        Debug.Log("Mi nickname es: " + NickName);
     }
 
     // Update is called once per frame
@@ -69,7 +73,7 @@ public class Player : MonoBehaviourPunCallbacks
         
 
         RaycastHit2D suelo = Physics2D.Raycast(transform.position, Vector2.down, transform.localScale.y + 0.1f, layerMask);
-        Debug.DrawRay(transform.position, Vector2.down, Color.red);
+        Debug.DrawRay(transform.position, Vector2.down, UnityEngine.Color.red);
         if (suelo.collider != null)
         {
             Debug.Log("Golpeo: " + suelo.collider.name);
@@ -88,5 +92,16 @@ public class Player : MonoBehaviourPunCallbacks
             rig.AddForce(transform.up * jumpForce);
             
         }
+    }
+   
+
+    [PunRPC]
+    void RPC_AddPoints(int _points)
+    {
+        points += _points;
+
+        GetComponentInChildren<TextMeshPro>().text = points.ToString();
+
+        Debug.Log(points);
     }
 }

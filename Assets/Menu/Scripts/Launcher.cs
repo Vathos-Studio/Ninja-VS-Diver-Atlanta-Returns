@@ -25,9 +25,18 @@ public class Launcher : MonoBehaviourPunCallbacks {
   }
 
   private void Start() {
-    Debug.Log("Connecting to master...");
-    PhotonNetwork.ConnectUsingSettings();
-  }
+        // Solo conectar si no estamos conectados
+        if (!PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.ConnectUsingSettings();
+        }
+        else
+        {
+            Debug.Log("Ya estamos conectados a Photon, no se reconecta");
+            OnJoinedLobby();
+        }
+
+    }
 
   public override void OnConnectedToMaster() {
     Debug.Log("Connected to master!");

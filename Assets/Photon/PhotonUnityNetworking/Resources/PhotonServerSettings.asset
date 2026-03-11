@@ -37,6 +37,11 @@ MonoBehaviour:
   - ClickRpc
   - DestroyRpc
   - RotateSprite
+  - Collect
+  - RPC_AddPoints
+  - UpdateTimerUI
+  - SyncStartTime
+  - ShowWinnerUI
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
