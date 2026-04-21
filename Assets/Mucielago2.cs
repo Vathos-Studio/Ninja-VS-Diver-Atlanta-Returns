@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Unity.VisualScripting;
 
-public class Murcielago2 : MonoBehaviour
+public class Murcielago2 : MonoBehaviourPunCallbacks
 {
     private enum estados
     {
         Idle, Flying, Volver
     }
     estados estado = estados.Idle;
-private Transform jugador;
+private Transform[] jugador;
     [SerializeField] private float distancia;
     public Vector3 puntoInicial;
     private Animator animator;
@@ -17,19 +19,39 @@ private Transform jugador;
     float tiempoSeguir;
     public float tiempoBase;
     public float velocidadMovimiento;
+    Vector3 posicion;
 
 
     private void Start()
     {
-        jugador = FindAnyObjectByType<Player>().GetComponent<Transform>();
+        Player[] jugadorPlayer = FindObjectsByType<Player>(FindObjectsSortMode.None);
+        jugador = new Transform[jugadorPlayer.Length];
+
+        for (int i = 0; i < jugadorPlayer.Length; i++)
+        {
+            jugador[i] = jugadorPlayer[i].transform;
+        }
         animator = GetComponent<Animator>();
         puntoInicial = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            Destroy(this.gameObject); 
+        }
     }
 
     private void Update()
     {
-        distancia = Vector2.Distance(transform.position, jugador.position);
+        foreach (Transform j in jugador)
+        {
+            float dis = Vector2.Distance(transform.position, j.position);
+            if (dis < distancia)
+            {
+                distancia = dis;
+                posicion = j.position;
+            }
+        }
+        
         animator.SetFloat("Distancia", distancia);
 
         switch (estado)
@@ -67,8 +89,8 @@ private Transform jugador;
     private void FlyingState()
     {
         animator.SetBool("Vuela",true);
-        animator.transform.position = Vector2.MoveTowards(animator.transform.position, jugador.position, velocidadMovimiento * Time.deltaTime);
-        this.Girar(jugador.position);
+        animator.transform.position = Vector2.MoveTowards(animator.transform.position, posicion, velocidadMovimiento * Time.deltaTime);
+        this.Girar(posicion);
         tiempoSeguir -= Time.deltaTime;
         if (tiempoSeguir <= 0)
         {

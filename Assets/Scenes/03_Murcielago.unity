@@ -18246,6 +18246,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5415416984101790164, guid: 9a60ac1fe11818e48b11c9ae096b611c, type: 3}
+      propertyPath: m_SynchronizeLayers.Array.data[0].SynchronizeType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5415416984101790164, guid: 9a60ac1fe11818e48b11c9ae096b611c, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[0].SynchronizeType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5415416984101790164, guid: 9a60ac1fe11818e48b11c9ae096b611c, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[1].SynchronizeType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5415416984101790164, guid: 9a60ac1fe11818e48b11c9ae096b611c, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[2].SynchronizeType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 30988806375311930, guid: 9a60ac1fe11818e48b11c9ae096b611c, type: 3}
       propertyPath: sceneViewId
       value: 2
@@ -18307,6 +18323,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 101274974732625140, guid: 31a30df679ac1964cb1e119fc2158479, type: 3}
+      propertyPath: m_SynchronizeLayers.Array.data[0].SynchronizeType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 101274974732625140, guid: 31a30df679ac1964cb1e119fc2158479, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[0].SynchronizeType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 101274974732625140, guid: 31a30df679ac1964cb1e119fc2158479, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[1].SynchronizeType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 101274974732625140, guid: 31a30df679ac1964cb1e119fc2158479, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[2].SynchronizeType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 803127379569244801, guid: 31a30df679ac1964cb1e119fc2158479, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.48
