@@ -32,7 +32,7 @@ public class Player : MonoBehaviourPunCallbacks
 
         jumpForce = speed * 50;
 
-        NickName = photonView.Owner.NickName;
+       // NickName = photonView.Owner.NickName;
         Debug.Log("Mi nickname es: " + NickName);
     }
 
