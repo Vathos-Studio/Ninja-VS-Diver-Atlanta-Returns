@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -5415416984101790164}
   m_Layer: 0
   m_Name: pAJARRACO
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +145,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: -5415416984101790164}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -163,5 +164,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
-  m_SynchronizeLayers: []
+  m_SynchronizeParameters:
+  - Type: 1
+    SynchronizeType: 0
+    Name: Distancia
+  - Type: 9
+    SynchronizeType: 0
+    Name: Volver
+  - Type: 9
+    SynchronizeType: 0
+    Name: Llego
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0

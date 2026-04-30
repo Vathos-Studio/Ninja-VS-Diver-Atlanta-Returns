@@ -2,7 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using UnityEngine;
 
-public class Rino : MonoBehaviour
+public class Rino : MonoBehaviourPun, IPunObservable
 {
     private enum Estados
     {
@@ -13,7 +13,6 @@ public class Rino : MonoBehaviour
 
     private Estados estado = Estados.Idle;
 
-    private Transform[] jugadores;
     private Transform objetivo;
 
     [SerializeField] private float distanciaDeteccion = 9f;
@@ -26,31 +25,41 @@ public class Rino : MonoBehaviour
 
     private bool yaColisiono = false;
 
+    // ===== NETWORK =====
+    private Vector3 networkPosition;
+    private bool networkFlipX;
+    private int networkState;
+
+    private bool isMaster;
+
     private void Start()
     {
-        // Solo el Master controla este enemigo
-        if (!PhotonNetwork.IsMasterClient)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        // Buscar jugadores
-        Player[] jugadorPlayer = FindObjectsByType<Player>(FindObjectsSortMode.None);
-        jugadores = new Transform[jugadorPlayer.Length];
-
-        for (int i = 0; i < jugadorPlayer.Length; i++)
-        {
-            jugadores[i] = jugadorPlayer[i].transform;
-        }
+        isMaster = PhotonNetwork.IsMasterClient;
 
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        networkPosition = transform.position;
     }
 
     private void Update()
     {
-        if (estado != Estados.Collision)
+        if (isMaster)
+        {
+            MasterLogic();
+        }
+        else
+        {
+            ClientVisual();
+        }
+    }
+
+    // =========================
+    // MASTER (IA REAL)
+    // =========================
+    private void MasterLogic()
+    {
+        if (estado == Estados.Idle || estado == Estados.Run)
         {
             BuscarJugadorMasCercano();
         }
@@ -71,32 +80,41 @@ public class Rino : MonoBehaviour
         }
     }
 
+    //  FIX IMPORTANTE: detecta TODOS los jugadores en tiempo real
     private void BuscarJugadorMasCercano()
     {
+        GameObject[] jugadores = GameObject.FindGameObjectsWithTag("Player");
+
         float distanciaMinima = Mathf.Infinity;
         Transform masCercano = null;
 
-        foreach (Transform j in jugadores)
+        foreach (GameObject j in jugadores)
         {
-            float dis = Vector2.Distance(transform.position, j.position);
+            if (j == null) continue;
+
+            float dis = Vector2.Distance(transform.position, j.transform.position);
 
             if (dis < distanciaMinima)
             {
                 distanciaMinima = dis;
-                masCercano = j;
+                masCercano = j.transform;
             }
         }
 
         if (masCercano != null)
         {
-            distanciaActual = distanciaMinima;
             objetivo = masCercano;
+            distanciaActual = distanciaMinima;
         }
     }
 
     private void IdleState()
     {
-        if (objetivo == null) return;
+        if (objetivo == null)
+        {
+            animator.SetBool("Run", false);
+            return;
+        }
 
         Girar(objetivo.position);
 
@@ -104,6 +122,8 @@ public class Rino : MonoBehaviour
         {
             estado = Estados.Run;
         }
+
+        animator.SetBool("Run", false);
     }
 
     private void RunState()
@@ -128,31 +148,71 @@ public class Rino : MonoBehaviour
         yaColisiono = true;
 
         animator.SetBool("Collision", true);
-        StartCoroutine(DestruirDespues());
+
+        StartCoroutine(ResetAfterCollision());
     }
 
-    private IEnumerator DestruirDespues()
+    private IEnumerator ResetAfterCollision()
     {
-        yield return new WaitForSeconds(1f); // Ajusta al tiempo de tu animación
-        PhotonNetwork.Destroy(gameObject);
+        yield return new WaitForSeconds(5f);
+
+        estado = Estados.Idle;
+        yaColisiono = false;
+        animator.SetBool("Collision", false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (estado == Estados.Collision) return;
         if (collision.collider.CompareTag("Suelo")) return;
+
+        if (collision.collider.CompareTag("Player"))
+        {
+            collision.collider.GetComponent<Player>()?.Die();
+        }
+
         estado = Estados.Collision;
     }
 
-    private void Girar(Vector3 objetivo)
+    // =========================
+    // CLIENT (solo visual)
+    // =========================
+    private void ClientVisual()
     {
-        if (transform.position.x < objetivo.x)
+        transform.position = Vector3.Lerp(
+            transform.position,
+            networkPosition,
+            Time.deltaTime * 10f
+        );
+
+        spriteRenderer.flipX = networkFlipX;
+        estado = (Estados)networkState;
+    }
+
+    // =========================
+    // SYNC PHOTON
+    // =========================
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
         {
-            spriteRenderer.flipX = true;
+            stream.SendNext(transform.position);
+            stream.SendNext(spriteRenderer.flipX);
+            stream.SendNext((int)estado);
         }
         else
         {
-            spriteRenderer.flipX = false;
+            networkPosition = (Vector3)stream.ReceiveNext();
+            networkFlipX = (bool)stream.ReceiveNext();
+            networkState = (int)stream.ReceiveNext();
         }
+    }
+
+    // =========================
+    // UTIL
+    // =========================
+    private void Girar(Vector3 objetivoPos)
+    {
+        spriteRenderer.flipX = transform.position.x > objetivoPos.x;
     }
 }

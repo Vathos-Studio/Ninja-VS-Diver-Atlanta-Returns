@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: -5580836332054052445}
   - component: {fileID: -1939960022939969030}
   - component: {fileID: -2845727313988527308}
-  - component: {fileID: -186999466178308839}
   m_Layer: 2
   m_Name: Pingu1
   m_TagString: Player
@@ -54,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  rig: {fileID: 0}
+  rig: {fileID: 6804732142900308231}
   layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -228,6 +227,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 4240538887501492451}
   - {fileID: -1939960022939969030}
   - {fileID: -2845727313988527308}
   sceneViewId: 0
@@ -246,9 +246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
-  m_TeleportEnabled: 1
-  m_TeleportIfDistanceGreaterThan: 3
+  m_SynchronizeAngularVelocity: 1
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 10
 --- !u!114 &-2845727313988527308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,41 +265,17 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 1
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: VelocityX
   - Type: 1
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: VelocityY
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: SueloToca
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
---- !u!114 &-186999466178308839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555378340608117629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: -1939960022939969030}
-  - {fileID: -2845727313988527308}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &4328347259731201975
 GameObject:
   m_ObjectHideFlags: 0
